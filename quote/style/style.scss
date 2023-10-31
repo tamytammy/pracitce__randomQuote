@@ -1,0 +1,106 @@
+
+$main-color:rgb(6, 98, 164);
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap');
+@mixin respond($device){
+    @if $device == phone{
+        @media (max-width:600px){@content};
+    }
+    @if $device == pad{
+        @media (600px > width > 940px){@content};
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+body{
+    background-color: rgb(237, 228, 189);
+.quote{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding: 3rem 5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgb(#000,.6);
+    text-align: center;
+    &__heading{
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        &::before{
+            content: '';
+            height: 5px;
+            width: 4rem;
+            border-radius: 5px;
+            background-color: $main-color;
+            position: absolute;
+            bottom: -10px;
+            right: 45%;
+            @include respond(phone){
+                right: 30%;
+            };
+        }
+    }
+    span{
+        display: flex;
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        
+        }
+    &__quotation{
+        margin-bottom: 2.5rem;
+        }
+    &__author{
+            display: block;
+            margin-bottom: 1.5rem;
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            font-size: 1rem;
+            &::before{
+                content: '';
+                height: 3px;
+                width: 1rem;
+                background-color: $main-color;
+                position: absolute;
+                top: 50%;
+                left: -20px;
+        }
+        } 
+    &__btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+        transform: translateY(15px);
+            
+        button{
+            display: inline-block;
+            font-size: .8rem;
+            background-color: $main-color;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 10px;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            &:nth-child(2){
+                background-color: #fff;
+                color: #333;
+                margin-left: 1.5rem;
+                position: relative;
+                img{
+                    width: 20px;
+                    transform: translate(-5px,5px);
+
+                }
+            }
+        }
+    }   
+
+}
+}
